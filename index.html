@@ -131,6 +131,21 @@
       background: white;
     }
 
+    .screenshots a {
+  display: block;
+  text-decoration: none;
+}
+
+.screenshots img {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.screenshots img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+}
+
     .cta {
       background: linear-gradient(135deg, #2563eb, #0f172a);
       color: white;
@@ -351,20 +366,31 @@
   </section>
 
   <section id="screenshots">
-    <h2>Application Preview</h2>
+  <h2>Application Preview</h2>
 
-    <p>
-      Below are sample screenshots from the EngRes application showing the resource library,
-      teaching notes, premium resources, and payment functionality.
-    </p>
+  <p>
+    Below are sample screenshots from the EngRes application showing the home screen,
+    teaching notes, premium resources, and premium payment functionality.
+  </p>
 
-    <div class="screenshots">
+  <div class="screenshots">
+    <a href="images/home.png" target="_blank">
       <img src="images/home.png" alt="EngRes Home Screen">
+    </a>
+
+    <a href="images/notes.png" target="_blank">
       <img src="images/notes.png" alt="EngRes Notes Screen">
+    </a>
+
+    <a href="images/premium.png" target="_blank">
       <img src="images/premium.png" alt="EngRes Premium Screen">
+    </a>
+
+    <a href="images/premiumpay.png" target="_blank">
       <img src="images/premiumpay.png" alt="EngRes Premium Payment Screen">
-    </div>
-  </section>
+    </a>
+  </div>
+</section>
 
   <section id="business">
     <h2>Business Profile</h2>
