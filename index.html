@@ -12,6 +12,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f5f7fb;
@@ -22,22 +26,29 @@
     header {
       background: linear-gradient(135deg, #0f172a, #2563eb);
       color: white;
-      padding: 80px 20px;
+      padding: 85px 20px;
       text-align: center;
     }
 
     .logo {
-      width: 135px;
+      width: 180px;
       height: auto;
-      margin-bottom: 20px;
-      border-radius: 24px;
+      margin-bottom: 22px;
+      border-radius: 26px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
 
     header h1 {
-      font-size: 56px;
-      margin-bottom: 15px;
+      font-size: 58px;
+      margin-bottom: 10px;
       letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 22px;
+      color: #dbeafe;
     }
 
     header p {
@@ -57,7 +68,7 @@
     }
 
     nav a {
-      margin: 0 12px;
+      margin: 0 10px;
       color: #2563eb;
       text-decoration: none;
       font-weight: bold;
@@ -124,27 +135,24 @@
       margin-top: 30px;
     }
 
+    .screenshots a {
+      display: block;
+      text-decoration: none;
+    }
+
     .screenshots img {
       width: 100%;
       border-radius: 18px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       background: white;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .screenshots a {
-  display: block;
-  text-decoration: none;
-}
-
-.screenshots img {
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.screenshots img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.22);
-}
+    .screenshots img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+    }
 
     .cta {
       background: linear-gradient(135deg, #2563eb, #0f172a);
@@ -169,6 +177,29 @@
     footer p {
       margin: 5px 0;
     }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 44px;
+      }
+
+      .tagline {
+        font-size: 18px;
+      }
+
+      header p {
+        font-size: 18px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px 8px;
+      }
+
+      .logo {
+        width: 150px;
+      }
+    }
   </style>
 </head>
 
@@ -178,6 +209,10 @@
     <img src="images/logo.png" alt="EngRes Logo" class="logo">
 
     <h1>EngRes</h1>
+
+    <h3 class="tagline">
+      The Digital Resource Hub for Senior School English Teachers
+    </h3>
 
     <p>
       Empowering teachers of English with quality digital resources for Senior School education.
@@ -191,6 +226,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#features">Features</a>
+    <a href="#resources">Resources</a>
     <a href="#premium">Premium</a>
     <a href="#screenshots">Screenshots</a>
     <a href="#business">Business Profile</a>
@@ -311,6 +347,44 @@
     </div>
   </section>
 
+  <section id="resources">
+    <h2>Available Resource Categories</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Grammar Resources</h3>
+        <p>
+          Teaching notes and classroom support materials covering grammar, language use,
+          sentence structure, and other English language concepts.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Writing Resources</h3>
+        <p>
+          Materials that support the teaching of composition writing, essays,
+          functional writing, and structured written communication.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Literature Resources</h3>
+        <p>
+          Set text guidance, literary analysis materials, oral literature support,
+          and revision resources for classroom use.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Assessment Materials</h3>
+        <p>
+          Exercises, revision questions, classroom tasks, and assessment resources
+          designed to support learner practice and teacher preparation.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="premium">
     <h2>Premium Access</h2>
 
@@ -366,31 +440,32 @@
   </section>
 
   <section id="screenshots">
-  <h2>Application Preview</h2>
+    <h2>Application Preview</h2>
 
-  <p>
-    Below are sample screenshots from the EngRes application showing the home screen,
-    teaching notes, premium resources, and premium payment functionality.
-  </p>
+    <p>
+      Below are sample screenshots from the EngRes application showing the home screen,
+      teaching notes, premium resources, and premium payment functionality.
+      Click any screenshot to view it clearly.
+    </p>
 
-  <div class="screenshots">
-    <a href="images/home.png" target="_blank">
-      <img src="images/home.png" alt="EngRes Home Screen">
-    </a>
+    <div class="screenshots">
+      <a href="images/home.png" target="_blank">
+        <img src="images/home.png" alt="EngRes Home Screen">
+      </a>
 
-    <a href="images/notes.png" target="_blank">
-      <img src="images/notes.png" alt="EngRes Notes Screen">
-    </a>
+      <a href="images/notes.png" target="_blank">
+        <img src="images/notes.png" alt="EngRes Notes Screen">
+      </a>
 
-    <a href="images/premium.png" target="_blank">
-      <img src="images/premium.png" alt="EngRes Premium Screen">
-    </a>
+      <a href="images/premium.png" target="_blank">
+        <img src="images/premium.png" alt="EngRes Premium Screen">
+      </a>
 
-    <a href="images/premiumpay.png" target="_blank">
-      <img src="images/premiumpay.png" alt="EngRes Premium Payment Screen">
-    </a>
-  </div>
-</section>
+      <a href="images/premiumpay.png" target="_blank">
+        <img src="images/premiumpay.png" alt="EngRes Premium Payment Screen">
+      </a>
+    </div>
+  </section>
 
   <section id="business">
     <h2>Business Profile</h2>
@@ -456,6 +531,17 @@
         </p>
       </div>
     </div>
+  </section>
+
+  <section>
+    <h2>Our Mission</h2>
+
+    <p>
+      EngRes exists to support teachers of English by making quality teaching resources
+      more accessible through technology. The platform is committed to helping educators
+      save preparation time, improve classroom delivery, and access organized teaching
+      materials from a single location.
+    </p>
   </section>
 
   <section>
