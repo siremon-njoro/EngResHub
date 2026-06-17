@@ -22,19 +22,27 @@
     header {
       background: linear-gradient(135deg, #0f172a, #2563eb);
       color: white;
-      padding: 75px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
+    .logo {
+      width: 135px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
     header h1 {
-      font-size: 52px;
+      font-size: 56px;
       margin-bottom: 15px;
       letter-spacing: 1px;
     }
 
     header p {
-      font-size: 20px;
-      max-width: 850px;
+      font-size: 21px;
+      max-width: 900px;
       margin: auto;
     }
 
@@ -49,7 +57,7 @@
     }
 
     nav a {
-      margin: 0 14px;
+      margin: 0 12px;
       color: #2563eb;
       text-decoration: none;
       font-weight: bold;
@@ -112,7 +120,7 @@
     .screenshots {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 22px;
       margin-top: 30px;
     }
 
@@ -121,6 +129,18 @@
       border-radius: 18px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       background: white;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #2563eb, #0f172a);
+      color: white;
+      text-align: center;
+      border-radius: 24px;
+      padding: 45px 25px;
+    }
+
+    .cta h2 {
+      color: white;
     }
 
     footer {
@@ -140,12 +160,16 @@
 <body>
 
   <header>
+    <img src="images/logo.png" alt="EngRes Logo" class="logo">
+
     <h1>EngRes</h1>
+
     <p>
-      A teacher-focused English resource application designed to support the teaching
-      of English in Senior School through organized notes, lesson support materials,
-      revision resources, assessment tools, and premium teaching content.
+      Empowering teachers of English with quality digital resources for Senior School education.
+      EngRes provides organized teaching notes, lesson support materials, revision resources,
+      assessment tools, and premium teacher-focused content.
     </p>
+
     <a href="#contact" class="button">Contact Developer</a>
   </header>
 
@@ -162,22 +186,22 @@
     <h2>About EngRes</h2>
 
     <p>
-      EngRes is an educational technology project created to support teachers of
-      English in Senior School. The application provides organized teaching resources
-      that help teachers prepare lessons, access revision materials, design exercises,
-      and support learners more effectively.
+      EngRes is an educational technology project created to support teachers of English
+      in Senior School. The application provides organized resources that help teachers
+      prepare lessons, access teaching notes, create revision activities, and support
+      learners more effectively.
     </p>
 
     <p>
-      The platform is designed with teachers as the primary users. It focuses on
-      making English teaching preparation easier, faster, and more organized by
-      bringing useful teaching resources into one accessible mobile platform.
+      The platform is designed with teachers as the primary users. It brings together
+      practical English teaching materials in one accessible mobile platform, making
+      lesson preparation faster, easier, and more organized.
     </p>
 
     <p>
-      While learners may also benefit from the resources, EngRes is mainly built
-      for teachers who need reliable and well-structured English teaching materials
-      for Senior School.
+      Although learners may also benefit from the resources, EngRes is mainly built
+      for teachers who need reliable, structured, and classroom-friendly English
+      teaching materials for Senior School.
     </p>
 
     <div class="highlight">
@@ -185,6 +209,36 @@
         The goal of EngRes is to simplify English lesson preparation and provide
         teachers with convenient access to quality digital teaching resources.
       </p>
+    </div>
+  </section>
+
+  <section id="impact">
+    <h2>Why EngRes?</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Teacher Focused</h3>
+        <p>
+          Built primarily for teachers of English who need practical and organized
+          resources for Senior School instruction.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Resource Library</h3>
+        <p>
+          Provides access to teaching notes, lesson support materials, revision content,
+          exercises, and assessment resources.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Mobile First</h3>
+        <p>
+          Designed for convenient access from mobile devices, allowing teachers to
+          use resources wherever they are.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -211,16 +265,16 @@
       <div class="card">
         <h3>Revision Resources</h3>
         <p>
-          Revision materials that teachers can use to guide learners, assign
-          practice, and support exam preparation.
+          Revision materials that teachers can use to guide learners, assign practice,
+          and support exam preparation.
         </p>
       </div>
 
       <div class="card">
         <h3>Assessment Support</h3>
         <p>
-          Materials that assist teachers in preparing quizzes, exercises,
-          revision tasks, tests, and learner practice activities.
+          Materials that assist teachers in preparing quizzes, exercises, revision tasks,
+          tests, and learner practice activities.
         </p>
       </div>
 
@@ -247,31 +301,61 @@
 
     <p>
       EngRes provides selected free resources and premium teaching materials.
-      Premium access is intended to unlock extended notes, additional teaching
-      resources, advanced revision materials, assessment support content, and other
-      professional tools for teachers of English.
+      Premium access is intended to unlock extended notes, additional teaching resources,
+      advanced revision materials, assessment support content, and other professional
+      tools for teachers of English.
     </p>
 
     <p>
-      The premium model allows the project to continue developing, updating, and
-      improving English teaching resources for users.
+      The premium model allows the project to continue developing, updating, and improving
+      English teaching resources for users.
     </p>
 
     <div class="highlight">
       <p>
         Payments for premium access are intended to be processed through M-Pesa,
-        allowing teachers and other users in Kenya to conveniently unlock paid
-        teaching resources through mobile money.
+        allowing teachers and other users in Kenya to conveniently unlock paid teaching
+        resources through mobile money.
       </p>
     </div>
   </section>
 
+  <section id="premiumfeatures">
+    <h2>Premium Features</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Extended Teaching Notes</h3>
+        <p>
+          Comprehensive English teaching resources and reference materials for deeper
+          lesson preparation and classroom support.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Premium Revision Materials</h3>
+        <p>
+          Additional revision exercises, guided practice materials, and exam-oriented
+          support resources.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Professional Teacher Tools</h3>
+        <p>
+          Advanced educational resources that support lesson planning, learner practice,
+          and classroom instruction.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="screenshots">
-    <h2>App Screenshots</h2>
+    <h2>Application Preview</h2>
 
     <p>
-      Below are sample screenshots showing the design and functionality of EngRes.
-      Replace the image files with your actual screenshots in the images folder.
+      Below are sample screenshots from the EngRes application showing the resource library,
+      teaching notes, premium resources, and payment functionality.
     </p>
 
     <div class="screenshots">
@@ -279,6 +363,7 @@
       <img src="images/notes.png" alt="EngRes Notes Screen">
       <img src="images/resources.png" alt="EngRes Resources Screen">
       <img src="images/premium.png" alt="EngRes Premium Screen">
+      <img src="images/premiumpay.png" alt="EngRes Premium Payment Screen">
     </div>
   </section>
 
@@ -286,9 +371,15 @@
     <h2>Business Profile</h2>
 
     <p>
-      EngRes is operated as a software development and educational technology
-      project by Simon Njoroge. The project focuses on creating digital tools that
-      support the teaching of English in Senior School.
+      EngRes is operated as a software development and educational technology project
+      by Simon Njoroge. The project focuses on creating digital tools that support
+      the teaching of English in Senior School.
+    </p>
+
+    <p>
+      The platform provides organized teaching notes, revision materials, lesson support
+      resources, assessment tools, and premium educational content through a mobile
+      application.
     </p>
 
     <div class="card-grid">
@@ -296,34 +387,59 @@
         <h3>Nature of Business</h3>
         <p>
           Educational technology, mobile application development, teacher resource
-          development, digital learning resources, and software-based educational
-          services.
+          development, digital learning resources, and software-based educational services.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Primary Service</h3>
+        <p>
+          Development and distribution of digital teaching resources for English language
+          education at Senior School level.
         </p>
       </div>
 
       <div class="card">
         <h3>Primary Users</h3>
         <p>
-          Teachers of English in Senior School who need organized, accessible,
-          and practical resources for lesson preparation and learner support.
+          Teachers of English in Senior School who need organized, accessible, and practical
+          resources for lesson preparation and learner support.
         </p>
       </div>
 
       <div class="card">
         <h3>Other Beneficiaries</h3>
         <p>
-          Learners, tutors, schools, tuition centres, and independent users may
-          also benefit from the educational resources available on the platform.
+          Learners, tutors, schools, tuition centres, and independent users may also benefit
+          from the educational resources available on the platform.
         </p>
       </div>
 
       <div class="card">
         <h3>Revenue Model</h3>
         <p>
-          Free access to selected resources, with paid access to premium teaching
-          materials, advanced revision resources, and additional educational tools.
+          Free access to selected resources, with paid access to premium teaching materials,
+          advanced revision resources, and additional educational tools.
         </p>
       </div>
+
+      <div class="card">
+        <h3>Payment Method</h3>
+        <p>
+          Premium access is intended to be supported through M-Pesa payments for convenient
+          mobile money transactions in Kenya.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <h2>Supporting Better English Teaching Through Technology</h2>
+      <p>
+        EngRes aims to provide teachers with practical digital tools and resources that
+        improve lesson preparation, resource accessibility, and learner support.
+      </p>
     </div>
   </section>
 
