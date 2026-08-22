@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EngRes Hub is an English resource app for teachers. Learn about features, reading resources, downloads, download tokens, privacy, account deletion, and support.">
+  <title>EngRes Hub | English Resources for Teachers</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #06285d;
+      --navy-2: #0a4074;
+      --green: #0a9a5b;
+      --green-2: #42b883;
+      --ink: #10243f;
+      --muted: #607086;
+      --soft: #f4f8fb;
+      --card: #ffffff;
+      --line: #dce6ef;
+      --gold: #f2b84b;
+      --danger: #b23b3b;
+      --shadow: 0 18px 45px rgba(16, 36, 63, .11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.62;
+      background: var(--soft);
+      color: var(--ink);
+    }
+
+    a { color: var(--green); font-weight: 700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .hero {
+      background:
+        radial-gradient(circle at 84% 18%, rgba(66, 184, 131, .28), transparent 31%),
+        linear-gradient(135deg, var(--navy), var(--navy-2) 58%, #075f67);
+      color: white;
+      padding: 28px 18px 58px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: -48px;
+      height: 98px;
+      background: var(--soft);
+      border-radius: 50% 50% 0 0;
+      border-top: 5px solid rgba(66, 184, 131, .95);
+    }
+
+    .wrap { max-width: 1120px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      object-fit: contain;
+      background: white;
+      padding: 5px;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, .2);
+    }
+
+    .brand strong { display: block; font-size: 24px; letter-spacing: .2px; }
+    .brand span { display: block; color: rgba(255, 255, 255, .84); font-size: 14px; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: white;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .08);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .85fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5.2vw, 62px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      color: #d9fff0;
+      background: rgba(10, 154, 91, .2);
+      border: 1px solid rgba(66, 184, 131, .35);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin: 0 0 22px;
+      color: rgba(255, 255, 255, .9);
+      font-size: 18px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+    .button.primary { background: white; color: var(--navy); }
+    .button.secondary { color: white; border-color: rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .08); }
+
+    .summary-card {
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 18px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .summary-card h2 { color: white; font-size: 20px; margin: 0 0 12px; }
+    .summary-card p { margin: 0 0 10px; color: rgba(255, 255, 255, .88); }
+    .summary-list { display: grid; gap: 9px; margin-top: 14px; }
+    .summary-list span {
+      display: block;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    main { max-width: 1120px; margin: 0 auto; padding: 34px 18px 72px; }
+    section { scroll-margin-top: 20px; margin-top: 24px; }
+    .section-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 14px; }
+    h2 { color: var(--navy); font-size: 28px; margin: 0; line-height: 1.2; }
+    h3 { color: var(--navy); margin: 0 0 8px; line-height: 1.25; }
+    p { margin: 0 0 13px; }
+    ul { margin: 10px 0 0; padding-left: 20px; }
+    li { margin: 8px 0; }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 14px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #edf5f8;
+      color: var(--navy);
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .grid { display: grid; gap: 14px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.tight { padding: 16px; box-shadow: 0 12px 30px rgba(16, 36, 63, .08); }
+    .card.accent { border-left: 5px solid var(--green); }
+    .card.warning { border-left: 5px solid var(--gold); }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #e7f5ed;
+      color: var(--green);
+      font-weight: 900;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .policy-block {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: white; }
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    th, td { text-align: left; padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #eef5f7; color: var(--navy); font-size: 14px; }
+    tr:last-child td { border-bottom: 0; }
+
+    .notice {
+      background: #fff8e7;
+      border: 1px solid #f2d58b;
+      color: #5a3d00;
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .inline-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .link-button {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #f7fbfc;
+      padding: 8px 12px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 34px;
+      padding-top: 22px;
+    }
+
+    @media (max-width: 780px) {
+      .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 26px; }
+      nav { justify-content: flex-start; }
+      .hero-grid, .grid.two, .grid.three { grid-template-columns: 1fr; }
+      .hero { padding-top: 24px; }
+      .brand strong { font-size: 21px; }
+      .section-title { align-items: flex-start; flex-direction: column; }
+      table { min-width: 520px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand" aria-label="EngRes Hub brand">
+          <img src="assets/engres_hub_logo.png" alt="EngRes Hub logo">
+          <div>
+            <strong>EngRes Hub</strong>
+            <span>English Resources for Teachers</span>
+          </div>
+        </div>
+        <nav aria-label="Page navigation">
+          <a href="#features">Features</a>
+          <a href="#access">Access</a>
+          <a href="#tokens">Tokens</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#deletion">Delete Account</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Built for English teachers</div>
+          <h1>English teaching resources, organized for quick classroom use.</h1>
+          <p class="lead">EngRes Hub helps teachers find, read, save, and download English resources such as notes, exercises, exams, marking schemes, lesson plans, and schemes. Resources open inside the app so the experience feels simple, focused, and teacher friendly.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#features">Explore EngRes Hub</a>
+            <a class="button secondary" href="#privacy">Read Privacy Policy</a>
+            <a class="button secondary" href="#deletion">Account Deletion</a>
+          </div>
+        </div>
+        <aside class="summary-card" aria-label="Current app model">
+          <h2>How the app works now</h2>
+          <p>There is no payment system active in the app at the moment.</p>
+          <div class="summary-list">
+            <span>Guests can read published resources in the app.</span>
+            <span>Accounts are required for saving and downloading.</span>
+            <span>Downloads use download tokens.</span>
+            <span>Rewarded ads may help users earn tokens.</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features">
+      <div class="section-title">
+        <h2>What EngRes Hub Offers</h2>
+        <span class="pill">Teacher resource library</span>
+      </div>
+      <div class="grid three">
+        <article class="card tight">
+          <div class="feature-icon">Read</div>
+          <h3>Read resources in the app</h3>
+          <p>Published PDF resources open inside EngRes Hub, helping users read without being pushed into external file services.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">Find</div>
+          <h3>Find materials quickly</h3>
+          <p>Teachers can browse categories such as notes, exercises, exams, marking schemes, lesson plans, and schemes.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">Save</div>
+          <h3>Save useful resources</h3>
+          <p>Signed-in users can save resources to their account library and return to them later.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">PDF</div>
+          <h3>Download PDFs</h3>
+          <p>Users with accounts can download resources to phone storage when they have enough download tokens.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">Ads</div>
+          <h3>Earn with rewarded ads</h3>
+          <p>Rewarded ads may be used to earn download tokens when the ad system is available and configured.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">Safe</div>
+          <h3>Account controls</h3>
+          <p>Users can request account deletion, and account data is handled through Firebase services and app access rules.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="access">
+      <div class="section-title">
+        <h2>Access and Downloads</h2>
+        <span class="pill">Guest friendly</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>User type</th>
+              <th>Can read resources</th>
+              <th>Can save resources</th>
+              <th>Can download files</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Guest user</td>
+              <td>Yes. Published resources can be read in the app.</td>
+              <td>No. Saving requires an account.</td>
+              <td>No. Downloading requires an account and download tokens.</td>
+            </tr>
+            <tr>
+              <td>Signed-in teacher</td>
+              <td>Yes.</td>
+              <td>Yes.</td>
+              <td>Yes, when the account has enough download tokens.</td>
+            </tr>
+            <tr>
+              <td>Admin</td>
+              <td>Yes.</td>
+              <td>Yes.</td>
+              <td>Admins can also upload, publish, manage resources, and grant download credits.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">A resource that has already been downloaded may be downloaded again within the app's re-download window without consuming another token, according to the rules shown in the app.</p>
+    </section>
+
+    <section id="tokens">
+      <div class="grid two">
+        <article class="card accent">
+          <h2>Download Tokens</h2>
+          <p>Download tokens control file downloads. Before a download starts, the app may tell the user how many tokens will be used and whether a previous download is still inside the free re-download period.</p>
+          <ul>
+            <li>Guests are asked to create or sign in to an account before downloading.</li>
+            <li>Signed-in users need enough tokens for the selected resource.</li>
+            <li>After a successful download, the app updates the remaining token balance.</li>
+            <li>Admins can grant tokens from the admin panel.</li>
+          </ul>
+        </article>
+        <article class="card warning" id="ads">
+          <h2>Ads</h2>
+          <p>EngRes Hub may show banner ads, interstitial ads, and rewarded ads using Google Mobile Ads / AdMob.</p>
+          <ul>
+            <li>Rewarded ads can contribute toward earning download tokens.</li>
+            <li>Non-rewarded ads may appear during normal app use.</li>
+            <li>Ads are provided by Google Mobile Ads, subject to Google's advertising policies and user/device settings.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="policy-block">
+        <div class="section-title">
+          <h2>Privacy Policy</h2>
+          <span class="pill">Last updated: 2026-08-22</span>
+        </div>
+        <p>EngRes Hub is an English teaching resource app designed to help teachers access, read, save, and download educational resources.</p>
+        <p><strong>Developer/operator:</strong> Siremon Digital Solutions<br>
+        <strong>Contact email:</strong> siremondigitalsolutions@gmail.com<br>
+        <strong>Country/region:</strong> Kenya</p>
+
+        <h3>Information we collect</h3>
+        <ul>
+          <li><strong>Account information:</strong> full name, email address, Firebase user ID, role, account status, and account settings when a user creates an account.</li>
+          <li><strong>Resource activity:</strong> saved resources, opened resources, download records, token usage, token balance, and rewarded ad progress.</li>
+          <li><strong>Uploaded resources:</strong> admin-uploaded PDF teaching resources stored in Firebase Storage.</li>
+          <li><strong>Advertising data:</strong> Google Mobile Ads / AdMob may process device identifiers, advertising identifiers, ad interactions, approximate device information, and diagnostics depending on settings and configuration.</li>
+        </ul>
+
+        <h3>How we use information</h3>
+        <ul>
+          <li>To create and manage user accounts.</li>
+          <li>To allow users to read published resources.</li>
+          <li>To let signed-in users save resources and download files.</li>
+          <li>To track download tokens, downloads, and rewarded ad progress.</li>
+          <li>To support account deletion requests.</li>
+          <li>To maintain app security, prevent misuse, and improve reliability.</li>
+        </ul>
+
+        <h3>Storage and third-party services</h3>
+        <p>EngRes Hub uses Firebase Authentication, Cloud Firestore, Firebase Storage, and Google Mobile Ads. Account records, saved resources, download token records, resource activity, and deletion requests may be stored in Firebase. PDF resources are stored in Firebase Storage.</p>
+        <p>EngRes Hub does not sell users' personal information. Data may be processed by Google services used to run the app, including Firebase and Google Mobile Ads.</p>
+
+        <h3>Security</h3>
+        <p>We use Firebase and Google services that support encrypted network communication. We also use app, database, and storage rules to help limit access to user and admin data. No system is perfectly secure, but we aim to protect user information using reasonable technical and organizational measures.</p>
+
+        <h3>Children's privacy</h3>
+        <p>EngRes Hub is intended for teachers and education professionals, not as a child-directed app. If this changes, the privacy policy and app settings must be updated to comply with child privacy and advertising requirements.</p>
+      </div>
+    </section>
+
+    <section id="deletion">
+      <div class="policy-block">
+        <div class="section-title">
+          <h2>Account Deletion</h2>
+          <span class="pill">User control</span>
+        </div>
+        <p>Users can request account deletion inside the app from <strong>Profile &gt; Request Account Deletion</strong>. If a user cannot access the app, they can request deletion by contacting support using the details below.</p>
+        <p><strong>External deletion request method:</strong> Email <strong>siremondigitalsolutions@gmail.com</strong> using the subject <strong>EngRes Hub Account Deletion Request</strong>.</p>
+        <p>The request should include the email address used for the EngRes Hub account. For security, we may ask the user to verify account ownership before deleting data.</p>
+
+        <h3>Data deleted or anonymized</h3>
+        <ul>
+          <li>Account profile information, including name, email, role, and account settings.</li>
+          <li>Saved resources connected to the account.</li>
+          <li>Download token records, download history, and rewarded ad progress connected to the account.</li>
+          <li>Resource activity connected to the account, where deletion is technically and legally appropriate.</li>
+        </ul>
+
+        <h3>Data that may be retained</h3>
+        <p>Limited records may be retained where required or allowed for legal, security, fraud-prevention, dispute-resolution, or operational reasons. Public educational resource files uploaded by an admin are app content and are not deleted because a normal user deletes their account.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="policy-block">
+        <h2>Contact and Support</h2>
+        <p>For support, privacy questions, or account deletion help, contact:</p>
+        <p><strong>Email:</strong> siremondigitalsolutions@gmail.com</p>
+        <p><strong>Developer/operator:</strong> Siremon Digital Solutions</p>
+        <p><strong>Country/region:</strong> Kenya</p>
+        <div class="inline-actions">
+          <a class="link-button" href="#privacy">Privacy Policy</a>
+          <a class="link-button" href="#deletion">Account Deletion</a>
+          <a class="link-button" href="#features">App Features</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>EngRes Hub</strong> - English Resources for Teachers.</p>
+      <p>This page contains the app overview, privacy policy, account deletion instructions, access rules, ads explanation, and support information in one place.</p>
+      <p>Last updated: 2026-08-22</p>
+    </footer>
+  </main>
+</body>
+</html>
+
+
