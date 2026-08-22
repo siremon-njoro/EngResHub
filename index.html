@@ -1,571 +1,441 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EngRes | Senior School English Teacher Resources</title>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EngRes Hub support, privacy policy, account deletion, download tokens, ads, and app information for English teachers.">
+  <title>EngRes Hub | Support, Privacy and Account Deletion</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      color-scheme: light;
+      --navy: #06285d;
+      --navy-2: #094071;
+      --green: #0a9a5b;
+      --green-2: #42b883;
+      --ink: #10243f;
+      --muted: #607086;
+      --soft: #f4f8fb;
+      --card: #ffffff;
+      --line: #dce6ef;
+      --gold: #f2b84b;
+      --shadow: 0 18px 45px rgba(16, 36, 63, .11);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.6;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.62;
+      background: var(--soft);
+      color: var(--ink);
     }
 
-    header {
-      background: linear-gradient(135deg, #0f172a, #2563eb);
+    a { color: var(--green); font-weight: 700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .hero {
+      background:
+        radial-gradient(circle at 82% 12%, rgba(66, 184, 131, .3), transparent 30%),
+        linear-gradient(135deg, var(--navy), var(--navy-2) 58%, #075f67);
       color: white;
-      padding: 85px 20px;
-      text-align: center;
+      padding: 34px 18px 54px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .logo {
-      width: 180px;
-      height: auto;
-      margin-bottom: 22px;
-      border-radius: 26px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: -46px;
+      height: 96px;
+      background: var(--soft);
+      border-radius: 50% 50% 0 0;
+      border-top: 5px solid rgba(66, 184, 131, .95);
     }
 
-    header h1 {
-      font-size: 58px;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
+    .wrap { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 34px;
     }
 
-    .tagline {
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 22px;
-      color: #dbeafe;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
     }
 
-    header p {
-      font-size: 21px;
-      max-width: 900px;
-      margin: auto;
+    .brand img {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      object-fit: contain;
+      background: white;
+      padding: 5px;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, .2);
     }
+
+    .brand strong { display: block; font-size: 24px; letter-spacing: .2px; }
+    .brand span { display: block; color: rgba(255, 255, 255, .84); font-size: 14px; }
 
     nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
     }
 
     nav a {
-      margin: 0 10px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .08);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #0f172a;
-    }
-
-    p {
-      margin-bottom: 15px;
-    }
-
-    .button {
-      display: inline-block;
-      background: white;
-      color: #2563eb;
-      padding: 14px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 25px;
-    }
-
-    .highlight {
-      background: #eaf2ff;
-      border-left: 5px solid #2563eb;
-      padding: 25px;
-      border-radius: 12px;
-      margin-top: 25px;
-    }
-
-    .card-grid {
+    .hero-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(270px, .8fr);
+      gap: 28px;
+      align-items: center;
     }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0 0 22px;
+      color: rgba(255, 255, 255, .88);
+      font-size: 18px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+    .button.primary { background: white; color: var(--navy); }
+    .button.secondary { color: white; border-color: rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .08); }
+
+    .status-card {
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 18px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .status-card h2 { color: white; font-size: 20px; margin: 0 0 10px; }
+    .status-card p { margin: 0 0 10px; color: rgba(255, 255, 255, .86); }
+    .status-card .pill { background: rgba(10, 154, 91, .22); border-color: rgba(66, 184, 131, .38); color: white; }
+
+    main { max-width: 1080px; margin: 0 auto; padding: 34px 18px 72px; }
+    section { scroll-margin-top: 20px; margin-top: 24px; }
+    .section-title { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 14px; }
+    h2 { color: var(--navy); font-size: 28px; margin: 0; line-height: 1.2; }
+    h3 { color: var(--navy); margin: 0 0 8px; line-height: 1.25; }
+    p { margin: 0 0 13px; }
+    ul { margin: 10px 0 0; padding-left: 20px; }
+    li { margin: 8px 0; }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 14px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #edf5f8;
+      color: var(--navy);
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .grid { display: grid; gap: 14px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .card {
-      background: white;
-      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--line);
       border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
 
-    .card h3 {
-      color: #2563eb;
-      margin-bottom: 10px;
-    }
+    .card.tight { padding: 16px; box-shadow: 0 12px 30px rgba(16, 36, 63, .08); }
+    .card.accent { border-left: 5px solid var(--green); }
+    .card.warning { border-left: 5px solid var(--gold); }
 
-    .screenshots {
+    .feature-icon {
+      width: 42px;
+      height: 42px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-top: 30px;
+      place-items: center;
+      border-radius: 12px;
+      background: #e7f5ed;
+      color: var(--green);
+      font-weight: 900;
+      margin-bottom: 12px;
+      font-size: 20px;
     }
 
-    .screenshots a {
-      display: block;
-      text-decoration: none;
-    }
-
-    .screenshots img {
-      width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    .policy-block {
       background: white;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
     }
 
-    .screenshots img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.22);
-    }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: white; }
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    th, td { text-align: left; padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: #eef5f7; color: var(--navy); font-size: 14px; }
+    tr:last-child td { border-bottom: 0; }
 
-    .cta {
-      background: linear-gradient(135deg, #2563eb, #0f172a);
-      color: white;
-      text-align: center;
-      border-radius: 24px;
-      padding: 45px 25px;
-    }
-
-    .cta h2 {
-      color: white;
+    .notice {
+      background: #fff8e7;
+      border: 1px solid #f2d58b;
+      color: #5a3d00;
+      border-radius: 14px;
+      padding: 14px 16px;
     }
 
     footer {
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 34px;
+      padding-top: 22px;
     }
 
-    footer p {
-      margin: 5px 0;
-    }
-
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 44px;
-      }
-
-      .tagline {
-        font-size: 18px;
-      }
-
-      header p {
-        font-size: 18px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 6px 8px;
-      }
-
-      .logo {
-        width: 150px;
-      }
+    @media (max-width: 760px) {
+      .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 26px; }
+      nav { justify-content: flex-start; }
+      .hero-grid, .grid.two, .grid.three { grid-template-columns: 1fr; }
+      .hero { padding-top: 24px; }
+      .brand strong { font-size: 21px; }
+      .section-title { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
-
 <body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand" aria-label="EngRes Hub brand">
+          <img src="assets/engres_hub_logo.png" alt="EngRes Hub logo">
+          <div>
+            <strong>EngRes Hub</strong>
+            <span>English Resources for Teachers</span>
+          </div>
+        </div>
+        <nav aria-label="Page navigation">
+          <a href="#overview">Overview</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#deletion">Delete Account</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
 
-  <header>
-    <img src="images/logo.png" alt="EngRes Logo" class="logo">
-
-    <h1>EngRes</h1>
-
-    <h3 class="tagline">
-      The Digital Resource Hub for Senior School English Teachers
-    </h3>
-
-    <p>
-      Empowering teachers of English with quality digital resources for Senior School education.
-      EngRes provides organized teaching notes, lesson support materials, revision resources,
-      assessment tools, and premium teacher-focused content.
-    </p>
-
-    <a href="#contact" class="button">Contact Developer</a>
+      <div class="hero-grid">
+        <div>
+          <h1>EngRes Hub support, privacy and account help</h1>
+          <p class="lead">EngRes Hub helps teachers read, save, and download English teaching resources in one app. This page explains how the app works, how data is handled, how download tokens and ads work, and how users can request account deletion.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="privacy-policy.html">Open Privacy Policy</a>
+            <a class="button secondary" href="account-deletion.html">Request Account Deletion</a>
+          </div>
+        </div>
+        <aside class="status-card" aria-label="Current app model">
+          <h2>Current access model</h2>
+          <p><span class="pill">No payment system active</span></p>
+          <p>Guests can read published resources in the app. Signed-in users can save resources and use download tokens to download PDF files.</p>
+          <p class="small">Last updated: 2026-08-22</p>
+        </aside>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#resources">Resources</a>
-    <a href="#premium">Premium</a>
-    <a href="#screenshots">Screenshots</a>
-    <a href="#business">Business Profile</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>About EngRes</h2>
-
-    <p>
-      EngRes is an educational technology project created to support teachers of English
-      in Senior School. The application provides organized resources that help teachers
-      prepare lessons, access teaching notes, create revision activities, and support
-      learners more effectively.
-    </p>
-
-    <p>
-      The platform is designed with teachers as the primary users. It brings together
-      practical English teaching materials in one accessible mobile platform, making
-      lesson preparation faster, easier, and more organized.
-    </p>
-
-    <p>
-      Although learners may also benefit from the resources, EngRes is mainly built
-      for teachers who need reliable, structured, and classroom-friendly English
-      teaching materials for Senior School.
-    </p>
-
-    <div class="highlight">
-      <p>
-        The goal of EngRes is to simplify English lesson preparation and provide
-        teachers with convenient access to quality digital teaching resources.
-      </p>
-    </div>
-  </section>
-
-  <section id="impact">
-    <h2>Why EngRes?</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Teacher Focused</h3>
-        <p>
-          Built primarily for teachers of English who need practical and organized
-          resources for Senior School instruction.
-        </p>
+  <main>
+    <section id="overview">
+      <div class="section-title">
+        <h2>App Overview</h2>
+        <span class="pill">Teacher resource library</span>
       </div>
-
-      <div class="card">
-        <h3>Resource Library</h3>
-        <p>
-          Provides access to teaching notes, lesson support materials, revision content,
-          exercises, and assessment resources.
-        </p>
+      <div class="grid three">
+        <article class="card tight">
+          <div class="feature-icon">R</div>
+          <h3>Read in app</h3>
+          <p>Published PDF resources are opened inside EngRes Hub so users can read without being sent to Google Drive or another external document viewer.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">S</div>
+          <h3>Save resources</h3>
+          <p>Signed-in users can save useful resources to their library and return to them later from their account.</p>
+        </article>
+        <article class="card tight">
+          <div class="feature-icon">D</div>
+          <h3>Download with tokens</h3>
+          <p>Downloads use download tokens. Tokens may be granted by the admin or earned through rewarded ads when ads are available.</p>
+        </article>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Mobile First</h3>
-        <p>
-          Designed for convenient access from mobile devices, allowing teachers to
-          use resources wherever they are.
-        </p>
+    <section id="access">
+      <div class="section-title">
+        <h2>Access and Downloads</h2>
+        <span class="pill">Guest friendly</span>
       </div>
-    </div>
-  </section>
-
-  <section id="features">
-    <h2>Core Features</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Teaching Notes</h3>
-        <p>
-          Organized English notes and reference materials to support lesson preparation
-          and classroom delivery in Senior School.
-        </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>User type</th>
+              <th>Can read resources</th>
+              <th>Can save resources</th>
+              <th>Can download files</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Guest user</td>
+              <td>Yes, published resources can be read in the app.</td>
+              <td>No, saving requires an account.</td>
+              <td>No, downloading requires an account and download tokens.</td>
+            </tr>
+            <tr>
+              <td>Signed-in teacher</td>
+              <td>Yes.</td>
+              <td>Yes.</td>
+              <td>Yes, when the account has enough download tokens.</td>
+            </tr>
+            <tr>
+              <td>Admin</td>
+              <td>Yes.</td>
+              <td>Yes.</td>
+              <td>Admin tools may also upload, publish, manage, and grant download credits.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <p class="muted small">A resource that has already been downloaded may be downloaded again within the app's re-download window without consuming another token, according to the rules shown in the app.</p>
+    </section>
 
-      <div class="card">
-        <h3>Lesson Support Materials</h3>
-        <p>
-          Resources that help teachers prepare class activities, explanations,
-          examples, lesson content, and learner support materials.
-        </p>
+    <section id="tokens">
+      <div class="grid two">
+        <article class="card accent">
+          <h2>Download Tokens</h2>
+          <p>Download tokens control file downloads. Before a download starts, the app may tell the user how many tokens will be used and whether a previous download is still inside the free re-download period.</p>
+          <ul>
+            <li>Guests are asked to create or sign in to an account before downloading.</li>
+            <li>Signed-in users need enough tokens for the selected resource.</li>
+            <li>After a successful download, the app updates the remaining token balance.</li>
+            <li>Admins can grant tokens from the admin panel.</li>
+          </ul>
+        </article>
+        <article class="card warning" id="ads">
+          <h2>Ads</h2>
+          <p>EngRes Hub may show banner ads, interstitial ads, and rewarded ads using Google Mobile Ads / AdMob.</p>
+          <ul>
+            <li>Rewarded ads can contribute toward earning download tokens.</li>
+            <li>Non-rewarded ads may appear during normal app use.</li>
+            <li>Ads are provided by Google Mobile Ads, subject to Google's advertising policies and user/device settings.</li>
+          </ul>
+        </article>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Revision Resources</h3>
-        <p>
-          Revision materials that teachers can use to guide learners, assign practice,
-          and support exam preparation.
-        </p>
+    <section id="privacy">
+      <div class="policy-block">
+        <div class="section-title">
+          <h2>Privacy Policy Summary</h2>
+          <a class="pill" href="privacy-policy.html">Full policy</a>
+        </div>
+        <p>EngRes Hub uses Firebase Authentication, Cloud Firestore, Firebase Storage, and Google Mobile Ads. The app may store account details, saved resources, opened resources, download records, token balances, rewarded ad progress, account settings, and account deletion requests.</p>
+        <p>Uploaded educational PDF resources are stored in Firebase Storage. Users read them inside the app, and signed-in users can download them to phone storage when they have enough download tokens.</p>
+        <p>EngRes Hub does not sell personal information. Data may be processed by Google services used to run the app, including Firebase and Google Mobile Ads.</p>
+        <p><a href="privacy-policy.html">Read the complete Privacy Policy</a></p>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Assessment Support</h3>
-        <p>
-          Materials that assist teachers in preparing quizzes, exercises, revision tasks,
-          tests, and learner practice activities.
-        </p>
+    <section id="deletion">
+      <div class="policy-block">
+        <div class="section-title">
+          <h2>Account Deletion</h2>
+          <a class="pill" href="account-deletion.html">Deletion page</a>
+        </div>
+        <p>Users can request account deletion inside the app from <strong>Profile &gt; Request Account Deletion</strong>. An external request page is also available for users who cannot access the app.</p>
+        <p>After a valid request is received, the account and related app data may be deleted or anonymized, including profile data, saved resources, download token records, download history, rewarded ad progress, and account activity, except where limited records must be retained for legal, security, fraud-prevention, or operational reasons.</p>
+        <p><a href="account-deletion.html">Open Account Deletion Request instructions</a></p>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Senior School English Content</h3>
-        <p>
-          Resources organized around the teaching of English at Senior School level,
-          with focus on classroom usefulness and teacher convenience.
-        </p>
+    <section id="data">
+      <div class="section-title">
+        <h2>Data Used by the App</h2>
+        <span class="pill">Plain language</span>
       </div>
-
-      <div class="card">
-        <h3>Mobile Access</h3>
-        <p>
-          A mobile-first platform that allows teachers to access useful English
-          teaching resources conveniently from their devices.
-        </p>
+      <div class="grid two">
+        <article class="card tight">
+          <h3>Account data</h3>
+          <p>Name, email address, Firebase user ID, role, account status, and app preferences.</p>
+        </article>
+        <article class="card tight">
+          <h3>Library activity</h3>
+          <p>Saved resources, opened resources, downloads, token usage, and reading or library activity needed to make app features work.</p>
+        </article>
+        <article class="card tight">
+          <h3>Resource files</h3>
+          <p>Admin-uploaded PDF teaching resources stored in Firebase Storage and displayed inside the app.</p>
+        </article>
+        <article class="card tight">
+          <h3>Advertising data</h3>
+          <p>AdMob may process ad identifiers, device information, ad interactions, and diagnostics depending on Google settings and app configuration.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="resources">
-    <h2>Available Resource Categories</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Grammar Resources</h3>
-        <p>
-          Teaching notes and classroom support materials covering grammar, language use,
-          sentence structure, and other English language concepts.
-        </p>
+    <section id="contact">
+      <div class="policy-block">
+        <h2>Contact and Support</h2>
+        <p>For support, privacy questions, or account deletion help, contact:</p>
+        <p><strong>Email:</strong> siremondigitalsolutions@gmail.com</p>
+        <p><strong>Developer/operator:</strong> Siremon Digital Solutions</p>
+        <p><strong>Country/region:</strong> Kenya</p>
+        
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Writing Resources</h3>
-        <p>
-          Materials that support the teaching of composition writing, essays,
-          functional writing, and structured written communication.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Literature Resources</h3>
-        <p>
-          Set text guidance, literary analysis materials, oral literature support,
-          and revision resources for classroom use.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Assessment Materials</h3>
-        <p>
-          Exercises, revision questions, classroom tasks, and assessment resources
-          designed to support learner practice and teacher preparation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="premium">
-    <h2>Premium Access</h2>
-
-    <p>
-      EngRes provides selected free resources and premium teaching materials.
-      Premium access is intended to unlock extended notes, additional teaching resources,
-      advanced revision materials, assessment support content, and other professional
-      tools for teachers of English.
-    </p>
-
-    <p>
-      The premium model allows the project to continue developing, updating, and improving
-      English teaching resources for users.
-    </p>
-
-    <div class="highlight">
-      <p>
-        Payments for premium access are intended to be processed through M-Pesa,
-        allowing teachers and other users in Kenya to conveniently unlock paid teaching
-        resources through mobile money.
-      </p>
-    </div>
-  </section>
-
-  <section id="premiumfeatures">
-    <h2>Premium Features</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Extended Teaching Notes</h3>
-        <p>
-          Comprehensive English teaching resources and reference materials for deeper
-          lesson preparation and classroom support.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Premium Revision Materials</h3>
-        <p>
-          Additional revision exercises, guided practice materials, and exam-oriented
-          support resources.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Professional Teacher Tools</h3>
-        <p>
-          Advanced educational resources that support lesson planning, learner practice,
-          and classroom instruction.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="screenshots">
-    <h2>Application Preview</h2>
-
-    <p>
-      Below are sample screenshots from the EngRes application showing the home screen,
-      teaching notes, premium resources, and premium payment functionality.
-      Click any screenshot to view it clearly.
-    </p>
-
-    <div class="screenshots">
-      <a href="images/home.png" target="_blank">
-        <img src="images/home.png" alt="EngRes Home Screen">
-      </a>
-
-      <a href="images/notes.png" target="_blank">
-        <img src="images/notes.png" alt="EngRes Notes Screen">
-      </a>
-
-      <a href="images/premium.png" target="_blank">
-        <img src="images/premium.png" alt="EngRes Premium Screen">
-      </a>
-
-      <a href="images/premiumpay.png" target="_blank">
-        <img src="images/premiumpay.png" alt="EngRes Premium Payment Screen">
-      </a>
-    </div>
-  </section>
-
-  <section id="business">
-    <h2>Business Profile</h2>
-
-    <p>
-      EngRes is operated as a software development and educational technology project
-      by Simon Njoroge. The project focuses on creating digital tools that support
-      the teaching of English in Senior School.
-    </p>
-
-    <p>
-      The platform provides organized teaching notes, revision materials, lesson support
-      resources, assessment tools, and premium educational content through a mobile
-      application.
-    </p>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3>Nature of Business</h3>
-        <p>
-          Educational technology, mobile application development, teacher resource
-          development, digital learning resources, and software-based educational services.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Primary Service</h3>
-        <p>
-          Development and distribution of digital teaching resources for English language
-          education at Senior School level.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Primary Users</h3>
-        <p>
-          Teachers of English in Senior School who need organized, accessible, and practical
-          resources for lesson preparation and learner support.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Other Beneficiaries</h3>
-        <p>
-          Learners, tutors, schools, tuition centres, and independent users may also benefit
-          from the educational resources available on the platform.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Revenue Model</h3>
-        <p>
-          Free access to selected resources, with paid access to premium teaching materials,
-          advanced revision resources, and additional educational tools.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Payment Method</h3>
-        <p>
-          Premium access is intended to be supported through M-Pesa payments for convenient
-          mobile money transactions in Kenya.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Our Mission</h2>
-
-    <p>
-      EngRes exists to support teachers of English by making quality teaching resources
-      more accessible through technology. The platform is committed to helping educators
-      save preparation time, improve classroom delivery, and access organized teaching
-      materials from a single location.
-    </p>
-  </section>
-
-  <section>
-    <div class="cta">
-      <h2>Supporting Better English Teaching Through Technology</h2>
-      <p>
-        EngRes aims to provide teachers with practical digital tools and resources that
-        improve lesson preparation, resource accessibility, and learner support.
-      </p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-
-    <p><strong>Developer:</strong> Simon Njoroge</p>
-    <p><strong>Email:</strong> siremon.njoro@gmail.com</p>
-    <p><strong>Project:</strong> EngRes Senior School English Teacher Resource Application</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 EngRes. All rights reserved.</p>
-    <p>Educational Technology | Senior School English | Teacher Resource Platform</p>
-  </footer>
-
+    <footer>
+      <p><strong>EngRes Hub</strong> - English Resources for Teachers.</p>
+      <p>Useful direct links: <a href="privacy-policy.html">Privacy Policy</a> | <a href="account-deletion.html">Account Deletion</a></p>
+      <p>Last updated: 2026-08-22</p>
+    </footer>
+  </main>
 </body>
 </html>
